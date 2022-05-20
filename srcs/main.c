@@ -11,6 +11,16 @@ void	my_print_stack(t_stack *x)
 		printf("%d\n", *(int *)link->content);
 		link = link->next;
 	}
+	printf("=====\n");
+}
+
+void	my_print_both(t_stacks *stacks)
+{
+	printf("A:\n");
+	my_print_stack(stacks->a); ////////////////////////////////////////////////////////////////
+	printf("B:\n");
+	my_print_stack(stacks->b); ////////////////////////////////////////////////////////////////
+}
 
 int	main(int argc, char **argv)
 {
@@ -23,10 +33,17 @@ int	main(int argc, char **argv)
 	stack_len = ft_read_input(argc, argv, stacks);
 	if (stack_len <=0)
 		return (ft_error_exit(stacks));
+
+	my_print_both(stacks); ////////////////////////////////////////////////////////////////
 	if (ft_lst_is_sorted(stacks->a->head))
 	{
+		ft_pa(stacks);
+		ft_pa(stacks);
+		ft_pa(stacks);
+		ft_pa(stacks);
+		ft_rrr(stacks);
 	// 	if (stack_len == 2)
-			ft_ra(stacks);
+			// ft_ra(stacks);
 	// 	if (stack_len == 3)
 	// 		ft_sort3(stacks);
 	// 	if (stack_len == 5)
@@ -34,6 +51,7 @@ int	main(int argc, char **argv)
 	// 	else
 	// 		ft_sort0(stacks, stack_len);
 	}
+	my_print_both(stacks); ////////////////////////////////////////////////////////////////
 	ft_free_stacks(stacks);
 	return(0);
 }

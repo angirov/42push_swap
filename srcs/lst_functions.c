@@ -6,11 +6,22 @@
 /*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:11:44 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/20 12:36:32 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/05/20 14:37:08 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* These are kind of candidates for the bonus part of Libft */
+
+t_list	*ft_lst_penult(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next->next)
+		lst = lst->next;
+	return (lst);
+}
 
 int	ft_lst_is_sorted(t_list **head)
 {

@@ -4,7 +4,11 @@ SRCS_DIR = srcs/
 SRCS_FILES = 	main.c \
 				reading.c \
 				freeing.c \
-				lst_functions.c
+				lst_functions.c \
+				operations_swap.c \
+				operations_push.c \
+				operations_rotate.c \
+				operations_rev_rotate.c
 
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 
