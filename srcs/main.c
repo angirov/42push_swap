@@ -10,8 +10,43 @@ int	ft_value(t_list *link)
 	return ((*(t_content *)link->content).value);
 }
 
+int	ft_new_min(t_list **head, t_list **new_min)
+{
+	t_list	*link;
+	t_list	*lesser;
+	int		min;
 
+	link = *head;
+	lesser = NULL;
+	min = INT_MAX;
+	while(link)
+	{
+		if (ft_value(link) < min && !ft_index(link))
+		{
+			lesser = link;
+			min = ft_value(lesser);
+		}
+		link = link->next;
+	}
+	if (lesser)
+	{
+		*new_min = lesser;
+		return (1);
+	}
+	return (0);
+}
 
+void	ft_index_stack(t_stack *stack)
+{
+	t_list	**new_min;
+	int		i;
+
+	new_min = (t_list **)malloc(sizeof(t_list *));
+	i = 1;
+	while(ft_new_min(stack->head, new_min))
+		((t_content *)(*new_min)->content)->index = i++;
+	free(new_min);
+}
 
 void	my_print_stack(t_stack *x)
 {
@@ -59,6 +94,7 @@ int	main(int argc, char **argv)
 	// 	else
 	// 		ft_sort0(stacks, stack_len);
 	}
+	ft_index_stack(stacks->a);
 	my_print_both(stacks); ////////////////////////////////////////////////////////////////
 	ft_free_stacks(stacks);
 	return(0);
