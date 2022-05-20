@@ -1,7 +1,10 @@
 NAME = push_swap
 
 SRCS_DIR = srcs/
-SRCS_FILES = main.c
+SRCS_FILES = 	main.c \
+				reading.c \
+				freeing.c
+
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 
 OBJ = ${SRCS:.c=.o}
