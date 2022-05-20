@@ -1,17 +1,16 @@
 #include "push_swap.h"
 
 
-void	my_print_stack(t_stack *a)
+void	my_print_stack(t_stack *x)
 {
 	t_list *link;
 
-	link = *a->head;
+	link = *x->head;
 	while(link)
 	{
 		printf("%d\n", *(int *)link->content);
 		link = link->next;
 	}
-}
 
 int	main(int argc, char **argv)
 {
@@ -24,18 +23,17 @@ int	main(int argc, char **argv)
 	stack_len = ft_read_input(argc, argv, stacks);
 	if (stack_len <=0)
 		return (ft_error_exit(stacks));
-	my_print_stack(stacks->a);
-	// if (!ft_is_sorted(astack))
-	// {
+	if (ft_lst_is_sorted(stacks->a->head))
+	{
 	// 	if (stack_len == 2)
-	// 		ft_ra(stacks);
+			ft_ra(stacks);
 	// 	if (stack_len == 3)
 	// 		ft_sort3(stacks);
 	// 	if (stack_len == 5)
 	// 		ft_sort5(stacks);
 	// 	else
 	// 		ft_sort0(stacks, stack_len);
-	// }
+	}
 	ft_free_stacks(stacks);
 	return(0);
 }

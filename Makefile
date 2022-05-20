@@ -3,7 +3,8 @@ NAME = push_swap
 SRCS_DIR = srcs/
 SRCS_FILES = 	main.c \
 				reading.c \
-				freeing.c
+				freeing.c \
+				lst_functions.c
 
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 
