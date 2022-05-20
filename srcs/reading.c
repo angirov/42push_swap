@@ -6,7 +6,7 @@
 /*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 10:24:36 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/20 12:36:26 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/05/20 19:58:54 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,3 +69,23 @@ int	ft_atoi_good_num(t_list **head, char *str, int *num)
 	*num = n + &head - &head;
 	return(1);
 }
+
+t_list	*ft_lst_new_num(int num)
+{
+	t_content	*content;
+
+	content = (t_content *)malloc(sizeof(content));
+	content->value = num;
+	content->index = 0;
+
+	return ft_lstnew(content);
+}
+
+// t_list *ft_lst_new_num(int num)
+// {
+// 	int *ptr;
+
+// 	ptr = (int *)malloc(sizeof(int));
+// 	*ptr = num;
+// 	return ft_lstnew(ptr);
+// }

@@ -6,7 +6,7 @@
 /*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:11:44 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/20 14:37:08 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/05/20 19:58:22 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,17 @@ int	ft_lst_is_sorted(t_list **head)
 	link = *head;
 	while (link && link->next)
 	{
-		if (*(int *)link->content > *(int *)(link->next)->content)
+		if (ft_value(link) > ft_value(link->next))
 			return (0);
 		link = link->next;
 	}
 	return (1);
+}
+
+/* A shortcut lst > stack */
+int	ft_stack_is_sorted(t_stack *x)
+{
+	return (ft_lst_is_sorted(x->head));
 }
 
 int	ft_lst_num_is_unique(t_list **head, int num)
@@ -46,20 +52,11 @@ int	ft_lst_num_is_unique(t_list **head, int num)
 	while(link && link->next)
 	{
 		// printf("Compare %d and %d\n", *(int *)link->content, num);
-		if (*(int *)link->content == num)\
+		if (ft_value(link) == num)\
 			// printf(">>> SAME !!!\n");
 			return (0);
 		link = link->next;
 	}
 	// printf("==============================\n");
 	return (1);
-}
-
-t_list *ft_lst_new_num(int num)
-{
-	int *ptr;
-
-	ptr = (int *)malloc(sizeof(int));
-	*ptr = num;
-	return ft_lstnew(ptr);
 }

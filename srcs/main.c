@@ -1,5 +1,17 @@
 #include "push_swap.h"
 
+int	ft_index(t_list *link)
+{
+	return ((*(t_content *)link->content).index);
+}
+
+int	ft_value(t_list *link)
+{
+	return ((*(t_content *)link->content).value);
+}
+
+
+
 
 void	my_print_stack(t_stack *x)
 {
@@ -8,7 +20,8 @@ void	my_print_stack(t_stack *x)
 	link = *x->head;
 	while(link)
 	{
-		printf("%d\n", *(int *)link->content);
+		printf("%d ", ft_value(link));
+		printf("[%d]\n", ft_index(link));
 		link = link->next;
 	}
 	printf("=====\n");
@@ -35,15 +48,10 @@ int	main(int argc, char **argv)
 		return (ft_error_exit(stacks));
 
 	my_print_both(stacks); ////////////////////////////////////////////////////////////////
-	if (ft_lst_is_sorted(stacks->a->head))
+	if (!ft_stack_is_sorted(stacks->a))
 	{
-		ft_pa(stacks);
-		ft_pa(stacks);
-		ft_pa(stacks);
-		ft_pa(stacks);
-		ft_rrr(stacks);
-	// 	if (stack_len == 2)
-			// ft_ra(stacks);
+		if (stack_len == 2)
+			ft_ra(stacks);
 	// 	if (stack_len == 3)
 	// 		ft_sort3(stacks);
 	// 	if (stack_len == 5)
