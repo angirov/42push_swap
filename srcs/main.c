@@ -64,10 +64,32 @@ void	my_print_stack(t_stack *x)
 
 void	my_print_both(t_stacks *stacks)
 {
-	printf("A:\n");
+	printf("##################\nA:\n");
 	my_print_stack(stacks->a); ////////////////////////////////////////////////////////////////
 	printf("B:\n");
 	my_print_stack(stacks->b); ////////////////////////////////////////////////////////////////
+}
+
+void	ft_sort_3(t_stacks *stacks)
+{
+	if (ft_index(*stacks->a->head) == 1)
+	{
+		ft_rra(stacks);
+		ft_sa(stacks);
+	}
+	else if (ft_index(*stacks->a->head) == 2)
+		if (ft_index((*stacks->a->head)->next) == 1)
+			ft_sa(stacks);
+		else
+			ft_rra(stacks);
+	else
+		if (ft_index((*stacks->a->head)->next) == 1)
+			ft_ra(stacks);
+		else
+		{
+			ft_sa(stacks);
+			ft_rra(stacks);
+		}
 }
 
 int	main(int argc, char **argv)
@@ -83,18 +105,18 @@ int	main(int argc, char **argv)
 		return (ft_error_exit(stacks));
 
 	my_print_both(stacks); ////////////////////////////////////////////////////////////////
+	ft_index_stack(stacks->a);
 	if (!ft_stack_is_sorted(stacks->a))
 	{
 		if (stack_len == 2)
 			ft_ra(stacks);
-	// 	if (stack_len == 3)
-	// 		ft_sort3(stacks);
+		if (stack_len == 3)
+			ft_sort_3(stacks);
 	// 	if (stack_len == 5)
 	// 		ft_sort5(stacks);
 	// 	else
 	// 		ft_sort0(stacks, stack_len);
 	}
-	ft_index_stack(stacks->a);
 	my_print_both(stacks); ////////////////////////////////////////////////////////////////
 	ft_free_stacks(stacks);
 	return(0);

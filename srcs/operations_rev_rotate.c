@@ -6,7 +6,7 @@
 /*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 12:49:34 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/20 14:34:06 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/05/20 23:21:56 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,18 @@ void	ft_rev_rotate(t_stack *x)
 void	ft_rra(t_stacks *stacks)
 {
 	ft_rev_rotate(stacks->a);
+	write(1, "rra\n", 4);
 }
 
 void	ft_rrb(t_stacks *stacks)
 {
 	ft_rev_rotate(stacks->b);
+	write(1, "rrb\n", 4);
 }
 
 void	ft_rrr(t_stacks *stacks)
 {
 	ft_rev_rotate(stacks->a);
 	ft_rev_rotate(stacks->b);
-	
+	write(1, "rrr\n", 4);
 }
