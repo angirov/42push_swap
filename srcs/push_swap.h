@@ -6,7 +6,7 @@
 /*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:47:29 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/20 19:57:14 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/05/23 23:20:02 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_stacks
 typedef	struct s_content
 {
 	int	value;
-	int	index;
+	uint	index;
 }	t_content;
 
 // ===== READING.C ===== //
@@ -41,6 +41,23 @@ int	ft_read_input(int argc, char **argv, t_stacks *stacks);
 int	ft_init_stacks(t_stacks *stacks);
 int	ft_atoi_good_num(t_list **head, char *str, int *num);
 t_list	*ft_lst_new_num(int num);
+
+// ===== INDEXING.C ===== //
+
+void	ft_index_stack(t_stack *stack);
+int	ft_new_min(t_list **head, t_list **new_min);
+
+// ===== SORTING.C ===== //
+void	ft_sort_3(t_stacks *stacks);
+int	ft_lst_pos_min(t_list **head);
+void	ft_repeat(void (* opration)(t_stacks *), t_stacks *stacks, int times);
+void	ft_empty_b(t_stacks *stacks);
+void	ft_sort_4(t_stacks *stacks);
+
+// ===== REDIX.C ===== //
+int		ft_nth_byte_is_1(int index, uint n);
+void	ft_separate_by_nth_byte(t_stacks *stacks, uint len, uint n);
+void	ft_redix(t_stacks *stacks);
 
 // ===== FREEING.C ===== //
 int	ft_free_list(t_list **head);
@@ -68,5 +85,8 @@ void	ft_rrr(t_stacks *stacks);
 // ===== MAIN.C ===== //
 int	ft_index(t_list *link);
 int	ft_value(t_list *link);
+void	my_print_bi(uint num);
+void	my_print_bi_first(uint num, int first);
+void	my_print_both_bi(t_stacks *stacks);
 
 #endif

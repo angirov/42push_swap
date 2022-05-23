@@ -6,7 +6,7 @@
 /*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 10:29:55 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/20 19:27:50 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/05/23 23:45:07 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ int	ft_free_stacks(t_stacks *stacks)
 int	ft_error_exit(t_stacks *stacks)
 {
 	ft_free_stacks(stacks);
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	return(-1);
 }

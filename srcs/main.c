@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/23 22:24:36 by vangirov          #+#    #+#             */
+/*   Updated: 2022/05/23 23:48:44 by vangirov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_index(t_list *link)
@@ -10,43 +22,38 @@ int	ft_value(t_list *link)
 	return ((*(t_content *)link->content).value);
 }
 
-int	ft_new_min(t_list **head, t_list **new_min)
+void	my_print_bi(uint num)
 {
-	t_list	*link;
-	t_list	*lesser;
-	int		min;
+	uint i = 1 << 31;
 
-	link = *head;
-	lesser = NULL;
-	min = INT_MAX;
-	while(link)
+	while (i)
 	{
-		if (ft_value(link) < min && !ft_index(link))
-		{
-			lesser = link;
-			min = ft_value(lesser);
-		}
-		link = link->next;
+		if ((num & i) == 0)
+			printf("0");
+		else
+			printf("1");
+		i = i >> 1;
 	}
-	if (lesser)
-	{
-		*new_min = lesser;
-		return (1);
-	}
-	return (0);
 }
 
-void	ft_index_stack(t_stack *stack)
+void	my_print_bi_first(uint num, int first)
 {
-	t_list	**new_min;
-	int		i;
+	uint i = 1 << (first - 1);
 
-	new_min = (t_list **)malloc(sizeof(t_list *));
-	i = 1;
-	while(ft_new_min(stack->head, new_min))
-		((t_content *)(*new_min)->content)->index = i++;
-	free(new_min);
+	while (i)
+	{
+		if ((num & i) == 0)
+			printf("0");
+		else
+			printf("1");
+		i = i >> 1;
+	}
 }
+
+
+// ft_free_stacks(stacks);
+// for (uint i = 1; i != (i << 31); i = i << 1)
+// 	my_print_bi(i);
 
 void	my_print_stack(t_stack *x)
 {
@@ -55,41 +62,43 @@ void	my_print_stack(t_stack *x)
 	link = *x->head;
 	while(link)
 	{
-		printf("%d ", ft_value(link));
+		printf("%5d\t", ft_value(link));
 		printf("[%d]\n", ft_index(link));
 		link = link->next;
 	}
-	printf("=====\n");
+	printf("============\n");
+}
+
+void	my_print_stack_bi(t_stack *x)
+{
+	t_list *link;
+
+	link = *x->head;
+	while(link)
+	{
+		printf("%5d\t", ft_value(link));
+		printf("i%3d = [", ft_index(link));
+		my_print_bi_first(ft_index(link), 6);
+		printf("]\n");
+		link = link->next;
+	}
+	printf("============\n");
 }
 
 void	my_print_both(t_stacks *stacks)
 {
-	printf("##################\nA:\n");
+	printf("############\nA:\n");
 	my_print_stack(stacks->a); ////////////////////////////////////////////////////////////////
 	printf("B:\n");
 	my_print_stack(stacks->b); ////////////////////////////////////////////////////////////////
 }
 
-void	ft_sort_3(t_stacks *stacks)
+void	my_print_both_bi(t_stacks *stacks)
 {
-	if (ft_index(*stacks->a->head) == 1)
-	{
-		ft_rra(stacks);
-		ft_sa(stacks);
-	}
-	else if (ft_index(*stacks->a->head) == 2)
-		if (ft_index((*stacks->a->head)->next) == 1)
-			ft_sa(stacks);
-		else
-			ft_rra(stacks);
-	else
-		if (ft_index((*stacks->a->head)->next) == 1)
-			ft_ra(stacks);
-		else
-		{
-			ft_sa(stacks);
-			ft_rra(stacks);
-		}
+	printf("############\nA:\n");
+	my_print_stack_bi(stacks->a); ////////////////////////////////////////////////////////////////
+	printf("B:\n");
+	my_print_stack_bi(stacks->b); ////////////////////////////////////////////////////////////////
 }
 
 int	main(int argc, char **argv)
@@ -103,51 +112,25 @@ int	main(int argc, char **argv)
 	stack_len = ft_read_input(argc, argv, stacks);
 	if (stack_len <=0)
 		return (ft_error_exit(stacks));
-
-	my_print_both(stacks); ////////////////////////////////////////////////////////////////
-	ft_index_stack(stacks->a);
+	// my_print_both(stacks); ////////////////////////////////////////////////////////////////
+	// printf("pos min = %d\n", ft_lst_pos_min(stacks->a->head));
+	// printf("lst size = %d\n", ft_lstsize(*stacks->a->head));
 	if (!ft_stack_is_sorted(stacks->a))
 	{
 		if (stack_len == 2)
 			ft_ra(stacks);
 		if (stack_len == 3)
 			ft_sort_3(stacks);
-	// 	if (stack_len == 5)
-	// 		ft_sort5(stacks);
-	// 	else
-	// 		ft_sort0(stacks, stack_len);
+		if (stack_len >= 4 && stack_len <= 5) 
+			ft_sort_4(stacks);
+		else
+			ft_redix(stacks);
 	}
-	my_print_both(stacks); ////////////////////////////////////////////////////////////////
-	ft_free_stacks(stacks);
+	if (ft_stack_is_sorted(stacks->a))
+		printf("Sorting test OK\n");
+	// my_print_both_bi(stacks); ////////////////////////////////////////////////////////////////
+
 	return(0);
 }
 
-
-
-
-
-
-
-
-
-
-////////////////////////////////////////
-// #include <stdio.h> ///////////////////////////////////////////////////////
-// int	main(int argc, char **argv)
-// {
-// 	int	count;
-// 	t_list *link;
-
-// 	count = 0;
-// 	link = malloc(sizeof(t_list));
-// 	printf("%d\n", argc);
-// 	while (count < argc)
-// 	{
-// 		printf("%s\n", argv[count]);
-// 		link->next = malloc(sizeof(t_list));
-// 		link->content = argv[count];
-// 		count++;
-// 	}
-// 	printf("Tokum of argv[1]: %d\n", ft_toknum(argv[1], ' '));
-// 	return 0;
-// }
+// https://numbergenerator.org/

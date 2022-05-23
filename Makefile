@@ -5,6 +5,9 @@ SRCS_FILES = 	main.c \
 				reading.c \
 				freeing.c \
 				lst_functions.c \
+				indexing.c \
+				sorting.c \
+				redix.c \
 				operations_swap.c \
 				operations_push.c \
 				operations_rotate.c \
