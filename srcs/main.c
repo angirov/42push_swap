@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vangirov <vangirov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 22:24:36 by vangirov          #+#    #+#             */
-/*   Updated: 2022/06/03 13:52:36 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/06/03 17:38:29 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ int	main(int argc, char **argv)
 	// if (ft_stack_is_sorted(stacks->a))
 	// 	printf("Sorting test OK\n");
 	// my_print_both_bi(stacks); ////////////////////////////////////////////////////////////////
-
+	ft_free_stacks(stacks);
 	return(0);
 }
 
