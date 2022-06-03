@@ -6,7 +6,7 @@
 /*   By: vangirov <vangirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 10:24:36 by vangirov          #+#    #+#             */
-/*   Updated: 2022/06/03 18:15:20 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/06/03 19:15:52 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	ft_atoi_good_num(t_list **head, char *str, int *num)
 	n = 0;
 	while (str[n])
 	{
-		if (n == 0 && str[0] == '-')
+		if (ft_strlen(str) > 1 && n == 0 && str[0] == '-')
 			n++;
 		else if (!ft_isdigit(str[n++]))
 			return (0);
