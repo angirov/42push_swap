@@ -3,14 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   reading.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vangirov <vangirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 10:24:36 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/20 19:58:54 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/06/03 18:15:20 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+long	ft_long_atoi(const char *nptr)
+{
+	long	num;
+	int		minus;
+
+	num = 0;
+	minus = 0;
+	while (ft_isspace(*nptr))
+		nptr++;
+	if (*nptr == '+')
+		nptr++;
+	else if (*nptr == '-')
+	{
+		minus = 1;
+		nptr++;
+	}
+	while (ft_isdigit(*nptr))
+		num = num * 10 + (*nptr++ - '0');
+	if (minus)
+		num *= -1;
+	return (num);
+}
 
 int	ft_read_input(int argc, char **argv, t_stacks *stacks)
 {
@@ -63,7 +86,7 @@ int	ft_atoi_good_num(t_list **head, char *str, int *num)
 		else if (!ft_isdigit(str[n++]))
 			return (0);
 	}
-	n = ft_atoi(str);
+	n = ft_long_atoi(str);
 	if (n > INT_MAX || n < INT_MIN)
 		return (0);
 	*num = n + &head - &head;

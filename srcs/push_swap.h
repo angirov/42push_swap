@@ -6,7 +6,7 @@
 /*   By: vangirov <vangirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:47:29 by vangirov          #+#    #+#             */
-/*   Updated: 2022/06/03 10:29:35 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/06/03 18:09:48 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	ft_read_input(int argc, char **argv, t_stacks *stacks);
 int	ft_init_stacks(t_stacks *stacks);
 int	ft_atoi_good_num(t_list **head, char *str, int *num);
 t_list	*ft_lst_new_num(int num);
+long	ft_long_atoi(const char *nptr);
 
 // ===== INDEXING.C ===== //
 
