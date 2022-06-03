@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vangirov <vangirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 22:24:36 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/23 23:48:44 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/06/03 13:52:36 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	ft_value(t_list *link)
 	return ((*(t_content *)link->content).value);
 }
 
-void	my_print_bi(uint num)
+void	my_print_bi(unsigned int num)
 {
-	uint i = 1 << 31;
+	unsigned int i = 1 << 31;
 
 	while (i)
 	{
@@ -36,9 +36,9 @@ void	my_print_bi(uint num)
 	}
 }
 
-void	my_print_bi_first(uint num, int first)
+void	my_print_bi_first(unsigned int num, int first)
 {
-	uint i = 1 << (first - 1);
+	unsigned int i = 1 << (first - 1);
 
 	while (i)
 	{
@@ -52,7 +52,7 @@ void	my_print_bi_first(uint num, int first)
 
 
 // ft_free_stacks(stacks);
-// for (uint i = 1; i != (i << 31); i = i << 1)
+// for (unsigned int i = 1; i != (i << 31); i = i << 1)
 // 	my_print_bi(i);
 
 void	my_print_stack(t_stack *x)
@@ -126,8 +126,8 @@ int	main(int argc, char **argv)
 		else
 			ft_redix(stacks);
 	}
-	if (ft_stack_is_sorted(stacks->a))
-		printf("Sorting test OK\n");
+	// if (ft_stack_is_sorted(stacks->a))
+	// 	printf("Sorting test OK\n");
 	// my_print_both_bi(stacks); ////////////////////////////////////////////////////////////////
 
 	return(0);

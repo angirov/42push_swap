@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   indexing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vangirov <vangirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 09:22:20 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/23 22:14:00 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/06/03 10:29:35 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_new_min(t_list **head, t_list **new_min)
 void	ft_index_stack(t_stack *stack)
 {
 	t_list	**new_min;
-	uint		i;
+	unsigned int		i;
 
 	new_min = (t_list **)malloc(sizeof(t_list *));
 	i = 1;

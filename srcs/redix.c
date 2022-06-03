@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   redix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vangirov <vangirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 21:25:37 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/23 23:23:05 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/06/03 14:14:32 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_nth_byte_is_1(int index, uint n)
+int	ft_nth_byte_is_1(int index, unsigned int n)
 {
 	return ((index & (1 << n)) != 0);
 }
 
-void	ft_separate_by_nth_byte(t_stacks *stacks, uint len, uint n)
+void	ft_separate_by_nth_byte(t_stacks *stacks, unsigned int len, unsigned int n)
 {
 	while (len-- > 0)
 	{
@@ -26,14 +26,14 @@ void	ft_separate_by_nth_byte(t_stacks *stacks, uint len, uint n)
 		if (ft_nth_byte_is_1(ft_index(*stacks->a->head), n))
 			ft_ra(stacks);
 		else
-			ft_pa(stacks);
+			ft_pb(stacks);
 	}
 }
 
 void	ft_redix(t_stacks *stacks)
 {
-	uint	len;
-	uint	n;
+	unsigned int	len;
+	unsigned int	n;
 
 	ft_index_stack(stacks->a);
 	len = ft_lstsize(*stacks->a->head);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_swap.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vangirov <vangirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 12:49:34 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/20 23:20:42 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/06/03 14:18:04 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ void	ft_sa(t_stacks *stacks)
 void	ft_sb(t_stacks *stacks)
 {
 	ft_swap(stacks->b);
-	write(1, "sa\n", 3);
+	write(1, "sb\n", 3);
 }

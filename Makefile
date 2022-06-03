@@ -36,7 +36,7 @@ INCLUDES_LOCAL = -I$(SRCS_DIR) -I$(LIBFT_DIR)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(INCLUDES_LOCAL) $(ALL_LIBS) $(HEADERS) -o $(NAME)
+	$(CC) $(OBJ) $(INCLUDES_LOCAL) $(ALL_LIBS) -o $(NAME)
 
 %.o: %.c $(HEADERS) makelibs
 	$(CC) $(CFLAGS) $(INCLUDES_LOCAL) -c $< -o $@ 
@@ -56,7 +56,6 @@ cleanlibs:
 fcleanlibs:
 	make fclean -C $(LIBFT_DIR)
 
-test:
-	@echo $(OBJ)
+re: fclean all
 
-.PHONY: all clean fclean re makelibs test
+.PHONY: all clean fclean re makelibs re

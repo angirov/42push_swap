@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vangirov <vangirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:47:29 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/23 23:20:02 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/06/03 10:29:35 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_stacks
 typedef	struct s_content
 {
 	int	value;
-	uint	index;
+	unsigned int	index;
 }	t_content;
 
 // ===== READING.C ===== //
@@ -55,8 +55,8 @@ void	ft_empty_b(t_stacks *stacks);
 void	ft_sort_4(t_stacks *stacks);
 
 // ===== REDIX.C ===== //
-int		ft_nth_byte_is_1(int index, uint n);
-void	ft_separate_by_nth_byte(t_stacks *stacks, uint len, uint n);
+int		ft_nth_byte_is_1(int index, unsigned int n);
+void	ft_separate_by_nth_byte(t_stacks *stacks, unsigned int len, unsigned int n);
 void	ft_redix(t_stacks *stacks);
 
 // ===== FREEING.C ===== //
@@ -85,8 +85,8 @@ void	ft_rrr(t_stacks *stacks);
 // ===== MAIN.C ===== //
 int	ft_index(t_list *link);
 int	ft_value(t_list *link);
-void	my_print_bi(uint num);
-void	my_print_bi_first(uint num, int first);
+void	my_print_bi(unsigned int num);
+void	my_print_bi_first(unsigned int num, int first);
 void	my_print_both_bi(t_stacks *stacks);
 
 #endif

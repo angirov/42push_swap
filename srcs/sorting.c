@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vangirov <vangirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 09:23:37 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/23 22:01:13 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/06/03 14:15:04 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_repeat(void (* operation)(t_stacks *), t_stacks *stacks, int times)
 void	ft_empty_b(t_stacks *stacks)
 {
 	while (*stacks->b->head)
-		ft_pb(stacks);
+		ft_pa(stacks);
 }
 
 void	ft_sort_4(t_stacks *stacks)
@@ -88,10 +88,10 @@ void	ft_sort_4(t_stacks *stacks)
 			ft_repeat(&ft_ra, stacks, min_pos - 1);
 		else
 			ft_repeat(&ft_rra, stacks, ft_lstsize(*stacks->a->head) - min_pos + 1);
-		ft_pa(stacks);
+		ft_pb(stacks);
 		// b_conter++;
 	}
 	ft_sort_3(stacks);
-	// ft_repeat(&ft_pb, stacks, b_conter);
+	// ft_repeat(&ft_pa, stacks, b_conter);
 	ft_empty_b(stacks);
 }
