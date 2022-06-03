@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vangirov <vangirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:11:44 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/20 19:58:22 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/06/03 19:40:09 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,13 @@ int	ft_stack_is_sorted(t_stack *x)
 int	ft_lst_num_is_unique(t_list **head, int num)
 {
 	t_list	*link;
-	// int		same;
 
 	link = *head;
-	while(link && link->next)
+	while (link && link->next)
 	{
-		// printf("Compare %d and %d\n", *(int *)link->content, num);
-		if (ft_value(link) == num)\
-			// printf(">>> SAME !!!\n");
+		if (ft_value(link) == num)
 			return (0);
 		link = link->next;
 	}
-	// printf("==============================\n");
 	return (1);
 }

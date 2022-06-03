@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vangirov <vangirov@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vangirov <vangirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 12:49:34 by vangirov          #+#    #+#             */
-/*   Updated: 2022/05/20 23:21:13 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/06/03 19:42:20 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_rotate(t_stack *x)
 {
 	t_list	*first;
-	
+
 	first = *x->head;
 	*x->head = first->next;
 	ft_lstlast(first)->next = first;

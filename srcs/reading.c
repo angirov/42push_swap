@@ -6,7 +6,7 @@
 /*   By: vangirov <vangirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 10:24:36 by vangirov          #+#    #+#             */
-/*   Updated: 2022/06/03 19:15:52 by vangirov         ###   ########.fr       */
+/*   Updated: 2022/06/03 19:50:21 by vangirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	ft_read_input(int argc, char **argv, t_stacks *stacks)
 		if (!ft_lst_num_is_unique(stacks->a->head, num))
 			return (-1);
 	}
-	return(argc - 1);
+	return (argc - 1);
 }
 
 int	ft_init_stacks(t_stacks *stacks)
@@ -90,7 +90,7 @@ int	ft_atoi_good_num(t_list **head, char *str, int *num)
 	if (n > INT_MAX || n < INT_MIN)
 		return (0);
 	*num = n + &head - &head;
-	return(1);
+	return (1);
 }
 
 t_list	*ft_lst_new_num(int num)
@@ -100,8 +100,7 @@ t_list	*ft_lst_new_num(int num)
 	content = (t_content *)malloc(sizeof(content));
 	content->value = num;
 	content->index = 0;
-
-	return ft_lstnew(content);
+	return (ft_lstnew(content));
 }
 
 // t_list *ft_lst_new_num(int num)
